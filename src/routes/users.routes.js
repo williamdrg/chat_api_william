@@ -1,6 +1,16 @@
 const { Router } = require('express');
-const { createUser, login, getAllUsers, uploadImage } = require('../controllers/users.controllers');
-const { createUserValidator, loginValidator, uploadAvatarValidator } = require('../validators/users.validator')
+const { 
+  createUser,
+  login, 
+  getAllUsers, 
+  uploadImage 
+} = require('../controllers/users.controllers');
+const { 
+  createUserValidator,
+  loginValidator, 
+  uploadAvatarValidator 
+} = require('../validators/users.validator')
+
 const upload = require('../utils/uploadFiles')
 
 const router = Router();

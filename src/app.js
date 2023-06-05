@@ -8,7 +8,6 @@ const cors = require('cors')
 
 initModel()
 
-
 const app = express()
 app.use(cors())
 app.use(express.json())
