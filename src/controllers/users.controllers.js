@@ -1,4 +1,9 @@
-const { registerUser, loginUser, fetchAllUsers, uploadUserAvatar } = require('../services/user.services');
+const { 
+  registerUser, 
+  loginUser, 
+  fetchAllUsers, 
+  uploadUserAvatar 
+} = require('../services/user.services');
 const fs = require('fs')
 
 const createUser = async (req, res, next) => {
@@ -52,8 +57,6 @@ const uploadImage = async (req, res, next) => {
     next(error);
   }
 };
-
-
 
 module.exports = {
   createUser,

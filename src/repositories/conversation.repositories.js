@@ -48,7 +48,6 @@ const deleteConversation = async (id) => {
   });
 }
 
-
 module.exports = {
   createNewConversation,
   findUserByIdWithConversation,

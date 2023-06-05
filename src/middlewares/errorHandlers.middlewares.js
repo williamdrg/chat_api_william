@@ -36,7 +36,7 @@ const ormErrorHandler = (err, req, res, next) => {
   }
 
   if (err instanceof DatabaseError) {
-    return res.estatus(409).json({
+    return res.status(409).json({
       name: err.name,
       message: err.message,
       errors: err.errors

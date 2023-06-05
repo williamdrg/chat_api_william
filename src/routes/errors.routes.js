@@ -9,7 +9,7 @@ const errorRoutes = (app) => {
 
   app.use('*', (req, res) => {  
     res.status(404).json({
-      message: 'Lo sentimos, la página que estás buscando no se encuentra disponible en este momento. Es posible que el contenido haya sido eliminado, movido o que hayas ingresado una dirección incorrecta. Por favor, verifica la URL e intenta nuevamente.'
+      message: "We're sorry, the page you're looking for is not available at the moment. It's possible that the content has been deleted, moved, or you may have entered an incorrect address. Please verify the URL and try again."
     })
   })
 }

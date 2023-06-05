@@ -2,67 +2,67 @@ const { check } = require('express-validator')
 const validateResult = require('../utils/validate')
 
 const createUserValidator = [
-  check("username", "Error con el atributo username")
+  check("username", "Error with the username attribute")
     .exists()
-    .withMessage("No se esta enviando el username")
+    .withMessage("The username is not being sent")
     .notEmpty()
-    .withMessage("Username no debe estar vacio")
+    .withMessage("Username should not be empty")
     .isString()
-    .withMessage("El tipo de dato debe ser una cadena de texto")
+    .withMessage("The data type must be a string")
     .isLength({ min: 6, max: 30 })
-    .withMessage("El username debe tener minimo 6 caracteres y máximo 30")
+    .withMessage("The username must be between 6 and 30 characters long")
     .trim(),
-  check("email", "Error con el campo email")
+  check("email", "Error with the email field")
     .exists()
-    .withMessage("El email es requerido")
+    .withMessage("Email is required")
     .notEmpty()
-    .withMessage("El email no puede estar vacío")
+    .withMessage("Email field cannot be empty")
     .isString()
-    .withMessage("El email debe ser un string")
+    .withMessage("Email should be a string")
     .isEmail()
-    .withMessage("El email debe ser válido")
+    .withMessage("Email should be a valid email address")
     .isLength({min: 10, max: 50})
-    .withMessage("El email debe tener minimo 10 caracteres y máximo 50")
+    .withMessage("Email should be between 10 and 50 characters long")
     .trim(),
-  check("password", "Error con el password")
+  check("password", "Error with the password field")
     .exists()
-    .withMessage("password es obligatorio")
+    .withMessage("Password is required")
     .notEmpty()
-    .withMessage("password no puede estar vacio")
+    .withMessage("Password field cannot be empty")
     .isString()
-    .withMessage("El password debe ser una cadena de texto")
+    .withMessage("Password should be a string")
     .isLength({ min: 4 })
-    .withMessage("El password debe tener minimo 4 caracteres"),
+    .withMessage("Password must be at least 4 characters long"),
   validateResult
 ]
 
 const loginValidator = [
-  check("email", "Error con el campo email")
+  check("email", "Error with the email field")
     .exists()
-    .withMessage("El email es requerido")
+    .withMessage("Email is required")
     .notEmpty()
-    .withMessage("El email no puede estar vacío")
+    .withMessage("Email field cannot be empty")
     .isEmail()
-    .withMessage("El email debe ser válido")
+    .withMessage("Email should be a valid email address")
     .isLength({ min: 10, max: 50 })
-    .withMessage("El email debe tener una longitud entre 10 y 50 caracteres")
+    .withMessage("Email should be between 10 and 50 characters long")
     .trim(),
-  check("password", "Error con el campo password")
+  check("password", "Error with the password field")
     .exists()
-    .withMessage("El password es requerido")
+    .withMessage("Password is required")
     .notEmpty()
-    .withMessage("El password no puede estar vacío")
+    .withMessage("Password field cannot be empty")
     .isString()
-    .withMessage("El password debe ser una cadena de texto")
+    .withMessage("Password should be a string")
     .isLength({ min: 4 })
-    .withMessage("El password debe tener una longitud mínima de 4 caracteres"),
+    .withMessage("Password must be at least 4 characters long"),
     validateResult
 ]
 
 const uploadAvatarValidator = [
   check("id", "Invalid user ID")
     .isInt()
-    .withMessage("El id debe ser un valor numérico"),
+    .withMessage("ID should be a numeric value"),
   validateResult
 ]
 

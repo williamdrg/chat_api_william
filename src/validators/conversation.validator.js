@@ -1,35 +1,34 @@
 const { check } = require('express-validator')
 const validateResult = require('../utils/validate')
 
-
 const conversationValidator = [
-  check('title', 'Error con el campo title')
+  check('title', 'Error with the title field')
     .exists()
-    .withMessage('No se esta enviando el titulo de la conversación')
+    .withMessage('The conversation title is not being sent')
     .notEmpty()
-    .withMessage('el campo titulo no puede estar vacio')
+    .withMessage('The title field cannot be empty')
     .isString()
-    .withMessage('El tipo de dato debe ser un string')
+    .withMessage('The data type must be a string')
     .isLength({ min: 3})
-    .withMessage('El titulo debe contener minimo 3 caracteres')
+    .withMessage('The title must contain at least 3 characters')
     .trim(),
-  check('type', 'Error con el campo type')
+  check('type', 'Error with the type field')
     .exists()
-    .withMessage('No se esta enviando el tipo de conversación')
+    .withMessage('The conversation type is not being sent')
     .notEmpty()
-    .withMessage('el campo type no puede estar vacio')
+    .withMessage('The type field cannot be empty')
     .isString()
-    .withMessage('El tipo de dato debe ser un string')
+    .withMessage('The data type must be a string')
     .trim()
     .isIn([ 'pair', 'group' ])
-    .withMessage("El tipo de conversación debe ser 'pair' or 'group'."),
-  check('createdBy', 'Error con el campo del creador de la conversación')
+    .withMessage("The conversation type must be 'pair' or 'group'."),
+  check('createdBy', 'Error with the creator field')
     .exists()
-    .withMessage('No se esta enviando el id del usuario que crea la conversación')
+    .withMessage('The creator ID is not being sent')
     .notEmpty()
-    .withMessage('El campo createdBY debe ser un número entero válido')
+    .withMessage('The createdBy field must be a valid integer')
     .isInt()
-    .withMessage('El campo createdBy debe ser un número entero (ID del usuario)')
+    .withMessage('The createdBy field should be an integer (User ID)')
     .trim(),
     validateResult
 ]
@@ -37,14 +36,14 @@ const conversationValidator = [
 const getUserConversationValidator = [
   check("id", "Invalid user ID")
     .isInt()
-    .withMessage("El ID de usuario debe ser un número entero válido"),
+    .withMessage("The user ID must be a valid integer"),
   validateResult
 ]
 
 const validateExistingConversation = [
   check("id", "Invalid conversation ID")
   .isInt()
-  .withMessage("El ID de la conversación debe ser un número entero válido"),
+  .withMessage("The conversation ID must be a valid integer"),
   validateResult
 ]
 

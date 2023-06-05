@@ -12,7 +12,7 @@ const { bulkAddParticipants } = require('../repositories/participant.repositorie
 const createConversation = async (title, type, createdBy) => {
   const user = await findUserById(createdBy)
   if (!user) {
-    throw { status: 404, message: 'El usuario no existe'}
+    throw { status: 404, message: 'user does no exist'}
   }
 
   const newConversation = await createNewConversation({title, type, createdBy})
@@ -28,7 +28,7 @@ const getUserConversations = async (userId) => {
 }
 
 const getConversationWithParticipants = async (conversationId) => {
-  const conversation = await findConversationById(conversationId)
+  const conversation = await findConversationByIdWithParticipants(conversationId)
   if (!conversation) {
     throw {status: 404, message: 'Conversation not found'}
   }

@@ -1,9 +1,10 @@
-const Conversations = require('../models/conversations.models')
-const Users = require('../models/users.models')
-const Participants = require('../models/participants.models')
-const Messages = require('../models/messages.models')
-
-const { createConversation, getUserConversations, getConversationWithParticipants, deleteConversationService, addUsersToGroupConversationService } = require('../services/conversation.services')
+const { 
+  createConversation, 
+  getUserConversations, 
+  getConversationWithParticipants, 
+  deleteConversationService, 
+  addUsersToGroupConversationService 
+} = require('../services/conversation.services')
 
 const createConversations = async (req, res, next) => {
   try {

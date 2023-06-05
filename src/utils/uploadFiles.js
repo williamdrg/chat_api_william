@@ -19,7 +19,7 @@ const fileFilter = (req, file, cb) => {
   const imageFormat = allowedFormats.includes(file.mimetype);
 
   if (!imageFormat) {
-    cb(new Error('El archivo debe ser una imagen (jpeg, jpg, png, gif)'));
+    cb(new Error('The file must be an image (jpeg, jpg, png, gif).'));
   } else {
     cb(null, true);
   }

@@ -2,21 +2,21 @@ const { check } = require('express-validator')
 const validateResult = require('../utils/validate')
 
 const validateparticipant = [
-  check('userId', 'Error con el campo userId')
+  check('userId', 'Error with the userId field')
     .exists()
-    .withMessage('No se esta enviando el id del usuario')
+    .withMessage('The user ID is not being sent')
     .notEmpty()
-    .withMessage('El campo userId no puede estar vacio')
+    .withMessage('The userId field cannot be empty')
     .isInt()
-    .withMessage('El campo userId debe ser un número entero (ID del usuario)')
+    .withMessage('The userId field should be an integer (User ID)')
     .trim(),
-  check('conversationId', 'Error con el campo de la conversación')
+  check('conversationId', 'Error with the conversation field')
     .exists()
-    .withMessage('No se esta enviando el id de la conversación')
+    .withMessage('The conversation ID is not being sent')
     .notEmpty()
-    .withMessage('El campo conversationId no puede estar vacio')
+    .withMessage('The conversationId field cannot be empty')
     .isInt()
-    .withMessage('El campo conversationId debe ser un número entero (ID del usuario)')
+    .withMessage('The conversationId field should be an integer (Conversation ID)')
     .trim(),
   validateResult
 ]

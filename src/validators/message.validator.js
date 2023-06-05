@@ -2,28 +2,28 @@ const { check } = require('express-validator')
 const validateResult = require('../utils/validate')
 
 const messageValidator = [
-  check('content', 'Error con el campo title')
+  check('content', 'Error with the content field')
     .exists()
-    .withMessage('No se esta enviando el contenido del mensaje')
+    .withMessage('The message content is not being sent')
     .notEmpty()
-    .withMessage('El contenido no puede estar vacio')
+    .withMessage('The content field cannot be empty')
     .isString()
-    .withMessage('El tipo de dato debe ser un string'),
-  check('createdBy', 'Error con el campo del creador del mensaje')
+    .withMessage('The data type must be a string'),
+  check('createdBy', 'Error with the message creator field')
     .exists()
-    .withMessage('No se esta enviando el id del usuario que crea el mensaje')
+    .withMessage('The creator ID is not being sent')
     .notEmpty()
-    .withMessage('El campo createdBY no puede estar vacio')
+    .withMessage('The createdBy field cannot be empty')
     .isInt()
-    .withMessage('El campo createdBy debe ser un número entero (ID del usuario)')
+    .withMessage('The createdBy field should be an integer (User ID)')
     .trim(),
-  check('conversationId', 'Error con el campo de la conversación')
+  check('conversationId', 'Error with the conversation field')
     .exists()
-    .withMessage('No se esta enviando el id de la conversación')
+    .withMessage('The conversation ID is not being sent')
     .notEmpty()
-    .withMessage('El campo conversationId no puede estar vacio')
+    .withMessage('The conversationId field cannot be empty')
     .isInt()
-    .withMessage('El campo conversationId debe ser un número entero (ID del usuario)')
+    .withMessage('The conversationId field should be an integer (Conversation ID)')
     .trim(),
   validateResult
 ]
