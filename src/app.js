@@ -4,10 +4,13 @@ const initModel = require('./models/initModel')
 const db = require('./utils/database')
 const apiRoutes = require('./routes/index')
 const errorRoutes = require('./routes/errors.routes')
+const cors = require('cors')
 
 initModel()
 
+
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 apiRoutes(app)
