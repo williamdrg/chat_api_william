@@ -41,14 +41,14 @@ const fetchAllUsers = async () => {
   return await getAllUsers();
 };
 
-const uploadUserAvatar = async (userId, avatarPath) => {
+const uploadUserAvatar = async (userId, avatarUrl) => {
   const user = await findUserById(userId);
   
   if (!user) {
     throw { status: 404, message: 'User not found' };
   }
 
-  return await updateUserAvatar(user, avatarPath);
+  return await updateUserAvatar(user, avatarUrl);
 };
 
 module.exports = {
