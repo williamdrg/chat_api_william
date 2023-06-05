@@ -1,9 +1,9 @@
 const { findConversationById } = require("../repositories/conversation.repositories");
-const { countParticipants, findParticipant } = require("../repositories/participant.repositories");
+const { countParticipants, findParticipant, createParticipant } = require("../repositories/participant.repositories");
 const { findUserById } = require("../repositories/user.repositories");
 
 
-const addParticipantService = async ({ userId, conversationId }) => {
+const addParticipantService = async (userId, conversationId) => {
   const conversation = await findConversationById(conversationId)
   if (!conversation) {
     throw new Error('Conversation not found');
@@ -19,7 +19,7 @@ const addParticipantService = async ({ userId, conversationId }) => {
     throw new Error('User does not exist in our database');
   }
 
-  const existingParticipant = await findParticipant({ userId, conversationId })
+  const existingParticipant = await findParticipant(userId, conversationId)
   if (existingParticipant) {
     throw new Error('This user is already a participant in the conversation')
   }

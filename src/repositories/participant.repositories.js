@@ -13,7 +13,7 @@ const createParticipant = async (userId, conversationId) => {
 }
 
 const countParticipants = async (conversationId) => {
-  return await Participants.count({ where: { conversationId } });
+  return await Participants.count({ where:  { conversationId } });
 }
 
 module.exports = {

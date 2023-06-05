@@ -3,8 +3,9 @@ const {
   loginUser, 
   fetchAllUsers, 
   uploadUserAvatar 
-} = require('../services/user.services');
-const fs = require('fs')
+} = require('../services/user.services')
+const uploadToCloudinary = require('../utils/uploadFieldCloudinary')
+
 
 const createUser = async (req, res, next) => {
   try {
@@ -43,20 +44,22 @@ const uploadImage = async (req, res, next) => {
       throw { status: 400, message: 'Seleccione la imagen que desea subir' };
     }
 
-    const avatarPath = req.file.path
+    const file = req.file;
+    const fileName = `${id}-${Date.now()}.${file.mimetype.split('/')[1]}`;
 
-    try {
-      await uploadUserAvatar(id, avatarPath);
-      res.json({ message: 'Avatar cargado exitosamente' });
-    } catch (error) {
-      // Si hay un error, borra el archivo
-      fs.unlinkSync(avatarPath);
-      throw error;
-    }
+    // Subir la imagen a Cloudinary
+    const uploadResult = await uploadToCloudinary(file.buffer, fileName);
+
+    // Una vez que la imagen se ha subido con éxito a Cloudinary,
+    // actualizar el avatar del usuario en la base de datos
+    await uploadUserAvatar(id, fileName);
+
+    res.json({ message: 'Avatar cargado exitosamente', url: uploadResult.url });
   } catch (error) {
     next(error);
   }
-};
+}
+
 
 module.exports = {
   createUser,

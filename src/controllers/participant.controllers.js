@@ -2,7 +2,8 @@ const { addParticipantService } = require('../services/participant.services');
 
 const addParticipant = async (req, res, next) => {
   try {
-    const participant = await addParticipantService(req.body)
+    const { userId, conversationId } = req.body
+    const participant = await addParticipantService(userId, conversationId)
     res.status(200).json(participant)
   } catch (error) {
     next(error)
