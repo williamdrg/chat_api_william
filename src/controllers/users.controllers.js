@@ -15,7 +15,7 @@ const createUser = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
+}
 
 const login = async (req, res, next) => {
   try {
@@ -25,7 +25,7 @@ const login = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
+}
 
 const getAllUsers = async (req, res, next) => {
   try {
@@ -34,7 +34,7 @@ const getAllUsers = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
+}
 
 const uploadImage = async (req, res, next) => {
   try {
@@ -52,7 +52,7 @@ const uploadImage = async (req, res, next) => {
 
     // Una vez que la imagen se ha subido con éxito a Cloudinary,
     // actualizar el avatar del usuario en la base de datos
-    await uploadUserAvatar(id, fileName);
+    await uploadUserAvatar(id, uploadResult.url);
 
     res.json({ message: 'Avatar cargado exitosamente', url: uploadResult.url });
   } catch (error) {
@@ -66,4 +66,4 @@ module.exports = {
   login,
   getAllUsers, 
   uploadImage,
-};
+}
