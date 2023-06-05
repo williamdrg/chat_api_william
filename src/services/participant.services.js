@@ -1,5 +1,5 @@
 const { findConversationById } = require("../repositories/conversation.repositories");
-const { countParticipants, findParticipant } = require("../repositories/participant.repositories");
+const { countParticipants, findParticipant, createParticipant } = require("../repositories/participant.repositories");
 const { findUserById } = require("../repositories/user.repositories");
 
 
