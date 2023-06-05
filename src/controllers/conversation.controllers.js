@@ -3,7 +3,8 @@ const {
   getUserConversations, 
   getConversationWithParticipants, 
   deleteConversationService, 
-  addUsersToGroupConversationService 
+  addUsersToGroupConversationService,
+  removeUsersFromGroupConversationService
 } = require('../services/conversation.services')
 
 const createConversations = async (req, res, next) => {
